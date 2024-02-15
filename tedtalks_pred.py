@@ -1,9 +1,14 @@
 import pickle
 import streamlit as st
-from streamlit_option_menu import option_menu
 
-# loading the saved model
-Tedtalks_recommendation_model = pickle.load(open('tedtalks_recommendation.sav', 'rb'))
+# Attempt to load the saved model
+try:
+    with open('tedtalks_recommendation.sav', 'rb') as f:
+        Tedtalks_recommendation_model = pickle.load(f)
+except FileNotFoundError:
+    st.error("Model file not found. Please ensure that the file path is correct.")
+except Exception as e:
+    st.error(f"Error loading the model: {str(e)}")
 
 st.title('Ted Talks Recommendation')
 
