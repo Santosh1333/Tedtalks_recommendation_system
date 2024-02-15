@@ -1,14 +1,7 @@
 import pickle
 import streamlit as st
 
-# Loading the saved function
-try:
-    with open('tedtalks_recommendation.sav', 'rb') as f:
-        loaded_model = pickle.load(f)
-except FileNotFoundError:
-    st.error("Model file not found. Please ensure that the file path is correct.")
-except Exception as e:
-    st.error(f"Error loading the model: {str(e)}")
+tedtalks_recommendation_model = pickle.load(open('heart_disease_model.sav', 'rb'))
 
 st.title('Ted Talks Recommendation')
 
