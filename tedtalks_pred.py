@@ -1,7 +1,7 @@
 import pickle
 import streamlit as st
 
-# Attempt to load the saved model
+# Loading the saved model
 try:
     with open('tedtalks_recommendation.sav', 'rb') as f:
         loaded_model = pickle.load(f)
@@ -22,7 +22,6 @@ if st.button('Get Recommendations'):
     # You need to define what kind of input the model expects
     # For example, if it's text, you might need to preprocess it before prediction
     # Replace 'input_data' with the correct preprocessing of 'prompt' based on your model's requirements
-    
     tedtalk_recom = loaded_model.predict(prompt)
 
 st.success(tedtalk_recom)
