@@ -1,7 +1,7 @@
 import pickle
 import streamlit as st
 
-tedtalks_recommendation_model = pickle.load(open('tedtalks_recommendation.sav', 'rb'))
+tedtalks_recommendation_model = pickle.load(open('tedtalks_recommendation.pkl', 'rb'))
 
 st.title('Ted Talks Recommendation')
 
